@@ -89,7 +89,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="{{url('/')}}" class="active">ទំព័រដើម</a></li>
+								<li class="{{ (\Request::route()->getName() == 'index') ? 'active' : '' }}"><a href="{{route('index')}}">ទំព័រដើម</a></li>
                                 <li><a href="{{url('/shop')}}">ទំនិញ</a></li>
 <!--								<li class="dropdown"><a href="#">ហាង<i class="fa fa-angle-down"></i></a>-->
 <!--                                    <ul role="menu" class="sub-menu">-->

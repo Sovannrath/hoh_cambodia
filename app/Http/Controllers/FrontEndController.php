@@ -14,7 +14,7 @@ class FrontEndController extends Controller
      */
     public function index()
     {
-        //
+        return view('Eshopper.index');
     }
     /**
      * Display Contact.

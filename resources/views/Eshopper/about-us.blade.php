@@ -1,70 +1,47 @@
 @extends('/layouts.master')
 @section('body-container')
-
+<style>
+    #about>li{
+        line-height: 2;
+    }
+</style>
 <div id="contact-page" class="container">
 	<div class="bg">
 		<div class="row">
 			<div class="col-sm-12">
 				<h2 class="title text-center">អំពីយើង</strong></h2>
-				<div>
-					<p>
-						Hands On Health Cambodia
-					</p>
+				<div class="row">
+                    <div class="col-sm-6">
+                        <img class="img-responsive" src="images\about\about1.jpg">
+                    </div>
+                    <div class="col-sm-6">
+                        <img class="img-responsive" src="images\about\about2.jpg">
+                    </div>
 				</div>
+                <br>
+                <div class="row">
+                    <div id="about" class="col-sm-12">
+                        <p style="text-align: justify; text-indent: 30px; line-height: 2" ​>
+                        គ្លីនីកព្យាបាលដោយចលនា និងស្អំសរសៃ <strong>Hands On Health Cambodia</strong> បានបើកដំណើរការនៅឆ្នាំ 2017 ដែលមានទីតាំងផ្ទះលេខ ៣៦ ផ្លូវ ២៧៣ ភូមិទួលគោក សង្កាត់ទួលសង្កែ ខណ្ឌឬស្សីកែវ រាជធានីភ្នំពេញ។ ជាមួយបទពិសោធព្យាបាលកន្លងមក គ្លីនីកយើងកំពុងទទួលបានការទុកចិត្ត និងគាំទ្រពីសំណាក់លោកអ្នក
+                        ដែលបានមកព្យាបាល ជាគ្លីនីកមួយដែលព្យាបាលប្រកបដោយប្រសិទ្ធភាពខ្ពស់ តាមស្ដង់ដារនៃវិទ្យាស្ថាន ហ៊ីផូក្រែតអូស្ដ្រាលី។ គ្លីនីកព្យាបាលដោយចលនា និងស្អំសរសៃ មានទទួលព្យាបាលដូចជា៖<br>
+                        <li>ស្រ្ដេសពីការងារ</li>
+                        <li>ឈឺចុករោយ ក ខ្នង និងចង្កេះ</li>
+                        <li>ឈឺចាក់ពីស្មា(លើកមិនរួច ខ្សោយឬគាំង)</li>
+                        <li>គៀបសរសៃឆ្អឹងកង ក និងចង្កេះ</li>
+                        <li>ឈឺត្រកៀក ជង្គង់ និងកជើង</li>
+                        <li>ឈឺក្នុងត្រកៀក ចាក់ស្ពឹកមកបាតជើង</li>
+                        <li>ស្ពឹក ក្រហាយ ខ្សោយកម្លាំងជើង</li>
+                        <li>ឈឺចាក់មកស្មា និងប្រអប់ដៃ</li>
+                        <li>ឈឺចាប់នៅសរសៃសាច់ដុំ សន្លាក់ឆ្អឹង</li>
+                        <li>វៀចមុខ វៀចមាត់</li>
+                        <li>ស្លាប់មួយចំហៀងខ្លួន</li>
+                        </p>
+                    </div>
+                </div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-8">
-				<div class="contact-form">
-					<h2 class="title text-center">ផ្ញើសារមកយើង</h2>
-					<div class="status alert alert-success" style="display: none"></div>
-					<form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
-						<div class="form-group col-md-6">
-							<input type="text" name="name" class="form-control" required="required" placeholder="បញ្ចូលឈ្មោះរបស់អ្នក">
-						</div>
-						<div class="form-group col-md-6">
-							<input type="email" name="email" class="form-control" required="required" placeholder="បញ្ចូលអសយដ្ឋានអ៊ីម៉ែល">
-						</div>
-						<div class="form-group col-md-12">
-							<input type="text" name="subject" class="form-control" required="required" placeholder="ចំណងជើង">
-						</div>
-						<div class="form-group col-md-12">
-							<textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="សារដែលចង់និយាយមកកាន់យើង"></textarea>
-						</div>
-						<div class="form-group col-md-12">
-							<input type="submit" name="submit" class="btn btn-primary pull-right" value="យល់ព្រម">
-						</div>
-					</form>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="contact-info">
-					<h2 class="title text-center">ទំនាក់ទំនង និង អសយដ្ឋាន</h2>
-					<address>
-						<p>គ្លីនិកព្យាបាលដោយចលនា និងស្អំសរសៃ</p>
-						<p>ផ្ទះលេខ ៣៦ ផ្លូវ ២៧៣ ភូមិទួលគោក សង្កាត់ទួលសង្កែ ខណ្ឌឬស្សីកែវ រាជធានីភ្នំពេញ</p>
-						<p>ទូរស័ព្ទ : (+855) 95 878 999 / 96 77 78 889</p>
-						<p>អ៊ីមែល : info@handsonhealthcambodia.com</p>
-					</address>
-					<div class="social-networks">
-						<h2 class="title text-center">បណ្ដាញសង្គម</h2>
-						<ul>
-							<li>
-								<a href="#"><i class="fa fa-facebook"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="fa fa-twitter"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="fa fa-google-plus"></i></a>
-							</li>
-							<li>
-								<a href="#"><i class="fa fa-youtube"></i></a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+
 		</div>
 	</div>
 </div><!--/#contact-page-->

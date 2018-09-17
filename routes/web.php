@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('Eshopper.index');
-});
+Route::get('/', 'FrontEndController@index')->name('index');
 
 Auth::routes();
 
@@ -27,8 +25,7 @@ Route::get('/cart', 'FrontEndController@showCart');
 Route::get('/blog', 'FrontEndController@showBlog');
 Route::get('/blog/id', 'FrontEndController@showBlogByID');
 Route::get('/contact', 'FrontEndController@showContact');
-Route::get('/about', 'FrontEndController@showAbout
-');
+Route::get('/about', 'FrontEndController@showAbout');
 
 Route::get('/add-product', 'ProductController@addProduct')->name('product.add');
 Route::post('/add-product', 'ProductController@store');

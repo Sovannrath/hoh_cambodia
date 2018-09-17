@@ -7,8 +7,8 @@
     	<div class="bg">
 	    	<div class="row">    		
 	    		<div class="col-sm-12">    			   			
-					<h2 class="title text-center">ទំនាក់ទំនងមក <strong>យើង</strong></h2>    			    				    				
-					<div id="gmap" class="contact-map">
+					<h2 class="title text-center">ទំនាក់ទំនងមក <strong>យើង</strong></h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1162.0025979127752!2d104.90513321837891!3d11.587995763599759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310951629bf8d505%3A0x768787221b7aeda!2sHands+On+Health+Cambodia!5e0!3m2!1sen!2skh!4v1537193842105" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 					</div>
 				</div>			 		
 			</div>    	
