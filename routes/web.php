@@ -25,6 +25,7 @@ Route::get('/cart', 'FrontEndController@showCart');
 Route::get('/blog', 'FrontEndController@showBlog');
 Route::get('/blog/id', 'FrontEndController@showBlogByID');
 Route::get('/contact', 'FrontEndController@showContact');
+Route::post('/contact', 'FrontEndController@Contact');
 Route::get('/about', 'FrontEndController@showAbout');
 
 Route::get('/add-product', 'ProductController@addProduct')->name('product.add');

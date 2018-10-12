@@ -3,7 +3,6 @@
 ទំនិញទាំងអស
 @endsection
 @section('content')
-
 {{-- #MAIN CONTENT --}}
 <div id="content">
 	<div class="row">
@@ -31,7 +30,7 @@
 						<div class="jarviswidget-editbox">
 						</div>
 						<div class="widget-body no-padding">
-							<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
+							<table id="#dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 								<thead>
 								<tr>
 									<th data-hide="phone">លេខរៀង</th>
@@ -71,6 +70,47 @@
 </div>
 
 @endsection
-@section('script')
+@section('page-script')
+<script src="{{asset('js/plugin/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{asset('js/plugin/datatables/dataTables.colVis.min.js') }}"></script>
+<script src="{{asset('js/plugin/datatables/dataTables.tableTools.min.js') }}"></script>
+<script src="{{asset('js/plugin/datatables/dataTables.bootstrap.min.js') }}"></script>
+<script src="{{asset('js/plugin/datatable-responsive/datatables.responsive.min.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        pageSetUp();
+        /* BASIC ;*/
+        var responsiveHelper_dt_basic = undefined;
+        var responsiveHelper_datatable_fixed_column = undefined;
+        var responsiveHelper_datatable_col_reorder = undefined;
+        var responsiveHelper_datatable_tabletools = undefined;
 
+        var breakpointDefinition = {
+            tablet: 1024,
+            phone: 480
+        };
+        $('#dt_basic').dataTable({
+            "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>" +
+            "t" +
+            "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+            "autoWidth": true,
+            "oLanguage": {
+                "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
+            },
+            "preDrawCallback": function () {
+                // Initialize the responsive datatables helper once.
+                if (!responsiveHelper_dt_basic) {
+                    responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#dt_basic'), breakpointDefinition);
+                }
+            },
+            "rowCallback": function (nRow) {
+                responsiveHelper_dt_basic.createExpandIcon(nRow);
+            },
+            "drawCallback": function (oSettings) {
+                responsiveHelper_dt_basic.respond();
+            }
+        });
+        /* END BASIC */
+    });
+</script>
 @endsection

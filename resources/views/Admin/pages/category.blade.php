@@ -181,7 +181,7 @@
             // Do not change code below
             errorPlacement : function(error, element) {
                 error.css({'color':'red', 'font-size':'10px', 'padding-top':'5px'});
-                error.insertAfter(element.parent()ខ);
+                error.insertAfter(element.parent());
             }
         });
     });

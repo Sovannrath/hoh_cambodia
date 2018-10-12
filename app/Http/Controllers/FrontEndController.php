@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use App\Product;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -25,7 +27,26 @@ class FrontEndController extends Controller
     {
         return view('Eshopper.contact-us');
     }
+
 	/**
+	 * Display Contact.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function Contact(Request $request)
+	{
+		$message = new Contact();
+		$message->name = $request->input('name');
+		$message->email = $request->input('email');
+		$message->subject = $request->input('subject');
+		$message->message = $request->input('message');
+		$message->save;
+
+		return redirect()->back();
+	}
+	/**
+	/**
+	 *
 	 * Display Contact.
 	 *
 	 * @return \Illuminate\Http\Response
