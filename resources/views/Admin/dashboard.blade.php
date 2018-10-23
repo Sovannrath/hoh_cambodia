@@ -62,36 +62,13 @@
                 <div class="jarviswidget" id="" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
                     <header>
                         <span class="widget-icon"> <i class="glyphicon glyphicon-stats txt-color-darken"></i> </span>
-                        <h2>Incidents</h2> <h2 class="pull-right"><span style="margin-right:10px"> Filter by: <div class="btn-group">
-										{{-- add: non-hidden - to disable auto hide --}}
-										<div class="btn-group">
-											<button class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown">
-												Month <i class="fa fa-caret-down"></i>
-											</button>
-											<ul class="dropdown-menu js-status-update pull-right">
-												<li>
-													<a href="javascript:void(0);" id="ag">Day</a>
-												</li>
-												<li>
-													<a href="javascript:void(0);" id="mt">Month</a>
-												</li>
-												<li>
-													<a href="javascript:void(0);" id="td">Year</a>
-												</li>
-											</ul>
-										</div>
-									</div></span></h2>
+                        <h2>សារទាំងអស់</h2>
                     </header>
                     <div>
                         <div class="jarviswidget-editbox">
                         </div>
                         <div class="widget-body">
-                            <div class="col-sm-12 col-md-12 col-lg-6">{{-- this is what the user will see --}}
-                                <div id="columnchart_values"></div>
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-6">{{-- this is what the user will see --}}
-                                <div id="columnchart_values2"></div>
-                            </div>
+                            <p class="text-center" style="font-size:50px">{{ count(App\Contact::all())}}</p>
                         </div>{{-- end widget body --}}
                     </div>{{-- end widget div --}}
                 </div>{{-- end jarviswidget --}}

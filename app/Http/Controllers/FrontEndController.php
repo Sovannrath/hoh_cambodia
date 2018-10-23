@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use App\Product;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,10 @@ class FrontEndController extends Controller
     public function index()
     {
         return view('Eshopper.index');
+    }
+
+    public function showServices(){
+    	return view('Eshopper.services');
     }
     /**
      * Display Contact.
@@ -35,14 +40,26 @@ class FrontEndController extends Controller
 	 */
 	public function Contact(Request $request)
 	{
-		$message = new Contact();
-		$message->name = $request->input('name');
-		$message->email = $request->input('email');
-		$message->subject = $request->input('subject');
-		$message->message = $request->input('message');
-		$message->save;
+		$name = $request->input('name');
+		$email = $request->input('email');
+		$subject = $request->input('subject');
+		$message = $request->input('message');
 
+
+		$result = DB::table('message')
+			->insert([
+				'name' => $name,
+				'email' => $email,
+				'subject' => $subject,
+				'message' => $message,
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
+			]);
+	if($result)
 		return redirect()->back();
+	else
+		return 'Error!!!';
+//		return redirect()->back();
 	}
 	/**
 	/**
@@ -135,6 +152,12 @@ class FrontEndController extends Controller
     {
         //
     }
+
+	public function productByCategoryID($cate_id){
+		$products = DB::table('products')->where('cate_id', '=', $cate_id)->paginate(9);
+//		dd($products);
+		return view('Eshopper.product-category', compact('products'));
+	}
 
     /**
      * Show the form for editing the specified resource.

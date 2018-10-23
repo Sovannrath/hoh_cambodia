@@ -30,7 +30,7 @@ use Illuminate\Pagination\Paginator;
                                 <div class="single-products">
 
                                     <div class="productinfo text-center">
-                                        <img src="/images/shop/product-images/{{ $product->product_image}}" alt="" />
+                                        <img with="268" height="249" src="/images/shop/product-images/{{ $product->product_image}}" alt="" />
                                         <h2>{{ $product->pro_price }} $</h2>
                                         <p>{{ $product->product_name }}</p>
                                         <a href="/product-details/{{$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>ចូលមើល</a>

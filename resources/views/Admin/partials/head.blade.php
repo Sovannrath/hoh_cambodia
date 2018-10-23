@@ -25,7 +25,9 @@
 
   {{-- Custom Style --}}
   <!--  <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/nvc-custom.css') }}">-->
-  {{-- #FAVICONS --}}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/jquery-confirm.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick.css') }}"/>
+    {{-- #FAVICONS --}}
   <link rel="shortcut icon" href="{{ asset('images/home/logo.png') }}" type="image/x-icon">
   <link rel="icon" href="{{ asset('images/home/logo.png') }}" type="image/x-icon">
 

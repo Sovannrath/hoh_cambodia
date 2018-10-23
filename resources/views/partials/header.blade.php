@@ -15,10 +15,8 @@
 						<div class="social-icons pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href="https://www.facebook.com/handsonhealthcambodia"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="https://plus.google.com/109578045120671411847"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCz8-9chHk1lS6bfxk1Dq5dQ"><i class="fa fa-youtube"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -64,9 +62,9 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href="#"><i class="fa fa-user"></i> គណនី​ខ្ញុំ</a></li>
-								<li><a href="#"><i class="fa fa-star"></i> បញ្ជី</a></li>
-								<li><a href="{{url('/checkout') }}"><i class="fa fa-crosshairs"></i> បង់ប្រាក់</a></li>
-								<li><a href="{{url('/cart') }}"><i class="fa fa-shopping-cart"></i> កន្ដ្រក</a></li>
+								<li class="hidden"><a href="#"><i class="fa fa-star"></i> បញ្ជី</a></li>
+								<li class="hidden"><a href="{{url('/checkout') }}"><i class="fa fa-crosshairs"></i> បង់ប្រាក់</a></li>
+								<li class="hidden"><a href="{{url('/cart') }}"><i class="fa fa-shopping-cart"></i> កន្ដ្រក</a></li>
 								<li><a href="{{route('login')}}"><i class="fa fa-lock"></i> ចូល</a></li>
 							</ul>
 						</div>
@@ -90,13 +88,13 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li class="{{ (\Request::route()->getName() == 'index') ? 'active' : '' }}"><a href="{{route('index')}}">ទំព័រដើម</a></li>
-                                <li><a href="{{url('/services')}}">សេវាកម្ម</a></li>
                                 <li><a href="{{url('/shop')}}">ទំនិញ</a></li>
 <!--								<li class="dropdown"><a href="#">ហាង<i class="fa fa-angle-down"></i></a>-->
 <!--                                    <ul role="menu" class="sub-menu">-->
 <!--                                        <li><a href="{{url('/shop')}}">ទំនិញ</a></li> -->
 <!--                                    </ul>-->
 <!--                                </li>-->
+                                <li><a href="{{url('/services')}}">សេវាកម្ម</a></li>
 								<li><a href="{{url('/contact')}}">ទំនាក់ទំនង</a></li>
                                 <li><a href="{{url('/about')}}">អំពីយើង</a></li>
 							</ul>

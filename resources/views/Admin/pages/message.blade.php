@@ -1,6 +1,6 @@
 @extends('/Admin.layouts.master')
 @section('template_title')
-ទំនិញទាំងអស
+សារទាំងអស
 @endsection
 @section('content')
 {{-- #MAIN CONTENT --}}
@@ -10,7 +10,7 @@
 		<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
 			<h1 class="page-title txt-color-blueDark">
 				{{-- PAGE HEADER --}}
-				<i class="fa-fw fa fa-home"></i>បញ្ជីទំនិញទាំងអស់
+				<i class="fa-fw fa fa-home"></i>សារទាំងអស់
 			</h1>
 		</div>
 		{{-- end col --}}
@@ -24,40 +24,38 @@
 				<div class="jarviswidget" id="" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
 					<header>
 						<span class="widget-icon"> <i class="fa fa-pencil-square-o txt-color-darken"></i> </span>
-						<h2>តារាងទំនិញ</h2>
+						<h2>សារទាំងអស់</h2>
 					</header>
 					<div>
 						<div class="jarviswidget-editbox">
 						</div>
 						<div class="widget-body no-padding">
-							<table id="product_list" class="table table-striped table-bordered table-hover" width="100%">
+							<table id="#dt_basic" class="table table-striped table-bordered table-hover" width="100%">
 								<thead>
 								<tr>
 									<th data-hide="phone">លេខរៀង</th>
-									<th data-class="expand">ឈ្មោះទំនិញ</th>
-									<th data-hide="phone">លេខកូដទំនិញ</th>
-									<th data-hide="phone,tablet">ម៉ាកសញ្ញា / ក្រុមហ៊ុន</th>
-									<th data-hide="phone,tablet">លក្ខណៈទំនិញ</th>
-									<th data-hide="phone,tablet">ស្ថានភាព</th>
-                                    <th data-hide="phone,tablet">រូបភាពអំពីទំនិញ</th>
-                                    <th data-hide="phone,tablet">ជម្រើស</th>
+									<th data-class="expand">ឈ្មោះ</th>
+									<th data-hide="phone">អ៊ីម៉ែល</th>
+									<th data-hide="phone,tablet">ចំណងជើង</th>
+									<th data-hide="phone,tablet">សារ</th>
+									<th data-hide="phone,tablet">ថ្ងៃបង្កើត</th>
+									<th data-hide="phone,tablet">ថ្ងៃកែប្រែចុងក្រោយ</th>
 								</tr>
 								</thead>
 								<tbody>
 								@php
 								$i = 0;
 								@endphp
-								@foreach($products as $product)
+								@foreach($messages as $message)
 								<tr>
-									<td>{{ $i+=1}}</td>
-									<td>{{ $product->product_name }}</td>
-									<td><label>{{ $product->product_code }}</label></td>
-									<td>{{ $product->brand_name }}</td>
-									<td>{{ $product->condition }}</td>
-									<td>{{ $product->status }}</td>
-                                    <td class="img-preview"><img src="/images/shop/product-images/{{ $product->product_image }}" style="height: 40px; width: 40px;"></td>
-                                    <td><a href="/{{$product->id}}/product-edit" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-pencil"></i></a>  <a href="/{{ $product->id}}/product-delete" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a></td>
-								</tr>
+                                    <td>{{$i+=1}}</td>
+                                    <td>{{$message->name}}</td>
+                                    <td>{{$message->email}}</td>
+                                    <td>{{$message->subject}}</td>
+                                    <td>{{$message->message}}</td>
+                                    <td>{{$message->created_at}}</td>
+                                    <td>{{$message->updated_at}}</td>
+                                </tr>
 								@endforeach
 								</tbody>
 							</table>
@@ -70,14 +68,13 @@
 </div>
 
 @endsection
-@section('script')
+@section('page-script')
 <script src="{{asset('js/plugin/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{asset('js/plugin/datatables/dataTables.colVis.min.js') }}"></script>
 <script src="{{asset('js/plugin/datatables/dataTables.tableTools.min.js') }}"></script>
 <script src="{{asset('js/plugin/datatables/dataTables.bootstrap.min.js') }}"></script>
 <script src="{{asset('js/plugin/datatable-responsive/datatables.responsive.min.js') }}"></script>
 <script>
-    // DO NOT REMOVE : GLOBAL FUNCTIONS!
     $(document).ready(function() {
         pageSetUp();
         /* BASIC ;*/
@@ -90,7 +87,7 @@
             tablet: 1024,
             phone: 480
         };
-        var table = $('#product_list').dataTable({
+        $('#dt_basic').dataTable({
             "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>" +
             "t" +
             "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
@@ -101,7 +98,7 @@
             "preDrawCallback": function () {
                 // Initialize the responsive datatables helper once.
                 if (!responsiveHelper_dt_basic) {
-                    responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#product_list'), breakpointDefinition);
+                    responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#dt_basic'), breakpointDefinition);
                 }
             },
             "rowCallback": function (nRow) {
@@ -112,15 +109,6 @@
             }
         });
         /* END BASIC */
-
-        $('#product_list tbody').on('click', 'td.img-preview', function () {
-            // var data = table.row(this).data();
-            // console.log(table.row(this).data());
-            $.dialog({
-                title: 'Image Preview',
-                content: '<img src="/images/shop/product-images/15397872815bc74a1171346.PNG">',
-            });
-        })
     });
 </script>
 @endsection

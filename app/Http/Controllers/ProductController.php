@@ -147,4 +147,5 @@ class ProductController extends Controller
         }
         return redirect('/product-list')->with('alert-success','Product deleted successfully');
     }
+
 }

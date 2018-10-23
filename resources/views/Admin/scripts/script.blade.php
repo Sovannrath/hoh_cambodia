@@ -1,6 +1,8 @@
 {{-- #PLUGINS --}}
 {{-- Link to Google CDN's jQuery + jQueryUI; fall back to local --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <script>
   if (!window.jQuery) {
@@ -49,11 +51,5 @@
 <script src="{{ asset('js/smart-chat-ui/smart.chat.manager.min.js') }}"></script>
 <script src="{{ asset('js/plugin/moment/moment.min.js') }}"></script>
 <script src="{{ asset('js/plugin/fullcalendar/fullcalendar.min.js') }}"></script>
-<script type="text/javascript">
-	$.ajax({
-	  url: "/ajax/incidents",
-	  success: function( result ) {
-	    $( "#incidents-notification" ).html( "<strong>" + result + "</strong> degrees" );
-	  }
-	});
-</script>
+<script type="text/javascript" src="{{ asset('slick/slick.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery-confirm.min.js') }}"></script>

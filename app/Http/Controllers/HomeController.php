@@ -57,4 +57,8 @@ class HomeController extends Controller
 		}
 		return back()->with('alert-success', 'លុបបានជោគជ័យ');
 	}
+	public function showAllMessage(){
+    	$messages = DB::table('message')->get();
+    	return view('Admin.pages.message', compact('messages'));
+	}
 }

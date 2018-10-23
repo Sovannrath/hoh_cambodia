@@ -33,6 +33,11 @@
           </ul>
 
       </li>
+          {{-- Message --}}
+      <li>
+          <a href="{{route('message')}}" title="សារ"><i class="fa fa-lg fa-fw fa-envelope"></i> <span class="menu-item-parent">សារ</span></a>
+      </li>
+
       {{-- Setup --}}
       <li>
           <a href="#" title="ការកំណត់"><i class="fa fa-lg fa-fw fa-cog"></i> <span class="menu-item-parent">ការកំណត់</span></a>

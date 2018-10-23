@@ -14,14 +14,11 @@
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="images/home/iframe1.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
+										<img src="{{ asset('images/home/neckpain.jpg' ) }}" alt="" />
 									</div>
 								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<p>ឈឺ ចុករោយ ក ស្មា</p>
+								<h2></h2>
 							</div>
 						</div>
 						
@@ -29,14 +26,11 @@
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="images/home/iframe2.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
+										<img src="{{ asset('images/home/backpain.jpg' ) }}" alt="" />
 									</div>
 								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<p>ឈឺ ឆ្អឹងខ្នង ចង្កេះ</p>
+								<h2></h2>
 							</div>
 						</div>
 						
@@ -44,14 +38,11 @@
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="images/home/iframe3.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
+										<img src="{{ asset('images/home/bulge disc.jpg' ) }}" alt="" />
 									</div>
 								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<p>លៀនថាស ឆ្អឹងកង</p>
+								<h2></h2>
 							</div>
 						</div>
 						
@@ -59,20 +50,17 @@
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="images/home/iframe4.png" alt="" />
-									</div>
-									<div class="overlay-icon">
-										<i class="fa fa-play-circle-o"></i>
+										<img src="{{ asset('images/home/pain to leg.jpg' ) }}" alt="" />
 									</div>
 								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<p>ឈឺស្ពឹកចាក់មកជើង</p>
+								<h2></h2>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="address">
-							<img src="images/home/map.png" alt="" />
+							<img src="{{ asset('images/home/map.png') }}" alt="" />
 							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
 						</div>
 					</div>

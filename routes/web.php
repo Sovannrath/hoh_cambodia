@@ -17,6 +17,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/shop', 'FrontEndController@showShop');
+Route::get('/services', 'FrontEndController@showServices');
 
 Route::get('/product-details/{id}', 'FrontEndController@showProductDetails');
 
@@ -32,9 +33,12 @@ Route::get('/add-product', 'ProductController@addProduct')->name('product.add');
 Route::post('/add-product', 'ProductController@store');
 Route::get('/product-recommend', 'ProductController@showRecommendProduct')->name('product.recommend');
 Route::get('/product-list', 'ProductController@listProduct')->name('product.list');
+Route::get('/products/category/{cate_id}', 'FrontEndController@productByCategoryID');
 Route::get('/{id}/product-edit', 'ProductController@productEdit')->name('product.edit');
 Route::post('/{id}/product-update', 'ProductController@productUpdate');
 Route::get('/{id}/product-delete', 'ProductController@productDelete');
+
+Route::get('/message', 'HomeController@showAllMessage')->name('message');
 
 Route::get('/category', 'HomeController@showCategory')->name('category');
 Route::post('/category/add', 'HomeController@addCategory');

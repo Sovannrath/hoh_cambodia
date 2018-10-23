@@ -17,7 +17,7 @@
 	    			<div class="contact-form">
 	    				<h2 class="title text-center">ផ្ញើសារមកយើង</h2>
 	    				<div class="status alert alert-success" style="display: none"></div>
-				    	<form id="main-contact-form" class="contact-form row" method="post" action="{{url('/contact')}}">
+				    	<form id="main-contact-form" class="contact-form row" method="post" action="{{url('/contact')}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 				            <div class="form-group col-md-6">
 				                <input type="text" name="name" class="form-control" required="required" placeholder="បញ្ចូលឈ្មោះរបស់អ្នក">
@@ -50,16 +50,13 @@
 	    					<h2 class="title text-center">បណ្ដាញសង្គម</h2>
 							<ul>
 								<li>
-									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="https://www.facebook.com/handsonhealthcambodia"><i class="fa fa-facebook"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="https://plus.google.com/109578045120671411847"><i class="fa fa-google-plus"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="fa fa-google-plus"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-youtube"></i></a>
+									<a href="https://www.youtube.com/channel/UCz8-9chHk1lS6bfxk1Dq5dQ"><i class="fa fa-youtube"></i></a>
 								</li>
 							</ul>
 	    				</div>

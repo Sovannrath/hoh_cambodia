@@ -13,6 +13,8 @@
     <link href="{{asset('css/animate.css') }}" rel="stylesheet">
 	<link href="{{asset('css/main.css') }}" rel="stylesheet">
 	<link href="{{asset('css/responsive.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick.css') }}"/>
+<!--    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}"/>-->
 	<link rel="icon" type="image/png" href="{{asset('images/home/favicon.png')}}"/>
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -37,11 +39,26 @@
 @include('partials.footer')
 
     @yield('page-script')
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="{{asset('js/jquery.js') }}"></script>
 	<script src="{{asset('js/bootstrap.min.js') }}"></script>
 	<script src="{{asset('js/jquery.scrollUp.min.js') }}"></script>
 	<script src="{{asset('js/price-range.js') }}"></script>
     <script src="{{asset('js/jquery.prettyPhoto.js') }}"></script>
     <script src="{{asset('js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('slick/slick.min.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.recommended-item').slick({
+                autoplay: true,
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                prevArrow:'<a class="left recommended-item-control slick-prev" style="position: absolute !important;"><i class="fa fa-angle-left"></i></a>',
+                nextArrow:'<a class="right recommended-item-control slick-next" style="position: absolute !important;"><i class="fa fa-angle-right"></i></a>',
+            });
+        });
+    </script>
 </body>
 </html>
