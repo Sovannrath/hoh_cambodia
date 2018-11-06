@@ -12,7 +12,6 @@
 */
 
 Route::get('/', 'FrontEndController@index')->name('index');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -37,6 +36,7 @@ Route::get('/products/category/{cate_id}', 'FrontEndController@productByCategory
 Route::get('/{id}/product-edit', 'ProductController@productEdit')->name('product.edit');
 Route::post('/{id}/product-update', 'ProductController@productUpdate');
 Route::get('/{id}/product-delete', 'ProductController@productDelete');
+Route::get('/{id}/img-preview', 'ProductController@imgPreview');
 
 Route::get('/message', 'HomeController@showAllMessage')->name('message');
 

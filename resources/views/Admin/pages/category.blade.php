@@ -11,7 +11,7 @@
 		<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
 			<h1 class="page-title txt-color-blueDark">
 				{{-- PAGE HEADER --}}
-				<i class="fa-fw fa fa-home"></i>បន្ថែមទំនិញ
+				<i class="fa-fw fa fa-home"></i>បន្ថែមប្រភេទទំនិញ
 			</h1>
 		</div>
 		{{-- end col --}}
@@ -25,7 +25,7 @@
 				<div class="jarviswidget" id="" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
 					<header>
 						<span class="widget-icon"> <i class="fa fa-pencil-square-o txt-color-darken"></i> </span>
-						<h2>ទម្រង់បញ្ចូលទំនិញ</h2>
+						<h2>ទម្រង់បញ្ចូលប្រភេទទំនិញ</h2>
 					</header>
 					<div>
 						<div class="jarviswidget-editbox">
@@ -85,7 +85,7 @@
                                     <td>{{ $cate->cate_id }}</td>
                                     <td>{{ $cate->cate_name }}</td>
                                     <td>{{ $cate->created_at }}</td>
-                                    <td><a href="/category/{{ $cate->cate_id}}/delete" class="btn btn-xs btn-danger">លុប</a></td>
+                                    <td><a href="/category/{{ $cate->cate_id}}/delete" class="btn btn-xs btn-danger"><span><i class="fa fa-trash-o"></i></span></a></td>
                                 </tr>
                                 @endforeach
                                 </tbody>

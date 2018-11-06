@@ -25,8 +25,16 @@ class ProductController extends Controller
      */
     public function listProduct()
     {
-    	$products = Product::all();
+    	$products = Product::viewProduct();
+//    	dd($products);
+//    	$products = Product::all();
         return view('Admin.pages.list-product', compact('products'));
+    }
+
+    public function imgPreview($id){
+    	$product = Product::where('id', '=', $id)->get();
+		$data = json_encode($product, 200);
+    	return $data;
     }
 
     public function showRecommendProduct(){

@@ -1,9 +1,13 @@
 @extends('/layouts.master')
 @section('body-container')
 <style>
-	#about>li{
+	li{
 		line-height: 2;
 	}
+    p{
+        font-size:16px;
+        line-height: 2;
+    }
 </style>
 <div id="contact-page" class="container">
 	<div class="bg">
@@ -11,37 +15,84 @@
 			<div class="col-sm-12">
 				<h2 class="title text-center">សេវាកម្ម</strong></h2>
 				<div class="row">
-					<div class="col-sm-6">
-						<img class="img-responsive" src="images\about\about1.jpg">
-					</div>
-					<div class="col-sm-6">
-						<img class="img-responsive" src="images\about\about2.jpg">
-					</div>
-				</div>
-				<br>
-				<div class="row">
 					<div id="about" class="col-sm-12">
-						<p style="text-align: justify; text-indent: 30px; line-height: 2" ​>
-							គ្លីនីកព្យាបាលដោយចលនា និងស្អំសរសៃ <strong>Hands On Health Cambodia</strong> បានបើកដំណើរការនៅឆ្នាំ 2017 ដែលមានទីតាំងផ្ទះលេខ ៣៦ ផ្លូវ ២៧៣ ភូមិទួលគោក សង្កាត់ទួលសង្កែ ខណ្ឌឬស្សីកែវ រាជធានីភ្នំពេញ។ ជាមួយបទពិសោធព្យាបាលកន្លងមក គ្លីនីកយើងកំពុងទទួលបានការទុកចិត្ត និងគាំទ្រពីសំណាក់លោកអ្នក
-							ដែលបានមកព្យាបាល ជាគ្លីនីកមួយដែលព្យាបាលប្រកបដោយប្រសិទ្ធភាពខ្ពស់ តាមស្ដង់ដារនៃវិទ្យាស្ថាន ហ៊ីផូក្រែតអូស្ដ្រាលី។ គ្លីនីកព្យាបាលដោយចលនា និងស្អំសរសៃ មានទទួលព្យាបាលដូចជា៖<br>
-						<li>ស្រ្ដេសពីការងារ</li>
-						<li>ឈឺចុករោយ ក ខ្នង និងចង្កេះ</li>
-						<li>ឈឺចាក់ពីស្មា(លើកមិនរួច ខ្សោយឬគាំង)</li>
-						<li>គៀបសរសៃឆ្អឹងកង ក និងចង្កេះ</li>
-						<li>ឈឺត្រកៀក ជង្គង់ និងកជើង</li>
-						<li>ឈឺក្នុងត្រកៀក ចាក់ស្ពឹកមកបាតជើង</li>
-						<li>ស្ពឹក ក្រហាយ ខ្សោយកម្លាំងជើង</li>
-						<li>ឈឺចាក់មកស្មា និងប្រអប់ដៃ</li>
-						<li>ឈឺចាប់នៅសរសៃសាច់ដុំ សន្លាក់ឆ្អឹង</li>
-						<li>វៀចមុខ វៀចមាត់</li>
-						<li>ស្លាប់មួយចំហៀងខ្លួន</li>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>តើការព្យាបាលដោយចលនាគឺជាអ្វី?</h3>
+                                <div>
+                                    <p>ការព្យាបាលដោយចលនា គឺជាវិជ្ជាពេទ្យ និងវិជ្ជាជីវៈព្យាបាលមានគោលដៅព្យាបាល ហើយកែលំអសុខភាពរបស់អ្នកជំងឺ ដែលមានបញ្ហានឹងប្រព័ន្ធគ្រោងឆ្អឹង និងសាច់ដុំ រួមទាំងបញ្ហានឹងអវយវៈដែលធ្វើចលនាខុសពីធម្មតា។ ការព្យាបាលដោយចលនាប្រើវិធីសាស្ត្រដែលយកវិជ្ជាសាស្ត្រជាគោលការណ៍មូលដ្ឋាន និងវិធីសាស្ត្រធម្មជាតិផងដែរ។</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>តើការព្យាបាលណាខ្លះដែលយើងខ្ញុំផ្ដល់ជូន?</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul>
+                                    <li><i class="fa fa-star"></i> ស្រ្ដេសពីការងារ</li>
+                                    <li><i class="fa fa-star"></i> ឈឺចុករោយ ក ខ្នង និងចង្កេះ</li>
+                                    <li><i class="fa fa-star"></i> ឈឺចាក់ពីស្មា(លើកមិនរួច ខ្សោយឬគាំង)</li>
+                                    <li><i class="fa fa-star"></i> គៀបសរសៃឆ្អឹងកង ក និងចង្កេះ</li>
+                                    <li><i class="fa fa-star"></i> ឈឺត្រកៀក ជង្គង់ និងកជើង</li>
+                                    <li><i class="fa fa-star"></i> ឈឺចាក់ពីស្មា(លើកមិនរួច ខ្សោយឬគាំង)</li>
+                                    <li><i class="fa fa-star"></i> ឈឺក្នុងត្រកៀក ចាក់ស្ពឹកមកបាតជើង</li>
+                                    <li><i class="fa fa-star"></i> ស្ពឹក ក្រហាយ ខ្សោយកម្លាំងជើង</li>
+                                    <li><i class="fa fa-star"></i> ឈឺចាក់មកស្មា និងប្រអប់ដៃ</li>
+                                    <li><i class="fa fa-star"></i> ឈឺចាប់នៅសរសៃសាច់ដុំ សន្លាក់ឆ្អឹង</li>
+                                    <li><i class="fa fa-star"></i> វៀចមុខ វៀចមាត់</li>
+                                    <li><i class="fa fa-star"></i> ស្លាប់មួយចំហៀងខ្លួន</li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="col-sm-4" style="margin-bottom: 10px">
+                                    <img class="img-responsive img-rounded" src="{{ asset('/images/services/stress.jpg') }}">
+                                </div>
+                                <div class="col-sm-4" style="margin-bottom: 10px">
+                                    <img class="img-responsive img-rounded" src="{{ asset('/images/services/neckpain.jpg') }}">
+                                </div><div class="col-sm-4" style="margin-bottom: 10px">
+                                    <img class="img-responsive img-rounded" src="{{ asset('/images/services/shoulderpain.jpg') }}">
+                                </div>
+                                <div class="col-sm-4" style="margin-bottom: 10px">
+                                    <img class="img-responsive img-rounded" src="{{ asset('/images/services/backpain.jpg') }}">
+                                </div>
+                                <div class="col-sm-4" style="margin-bottom: 10px">
+                                    <img class="img-responsive img-rounded" src="{{ asset('/images/services/kneepain.jpg') }}">
+                                </div>
+                                <div class="col-sm-4" style="margin-bottom: 10px">
+                                    <img class="img-responsive img-rounded" src="{{ asset('/images/services/veachmuk.jpg') }}">
+                                </div>
 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6" style="margin-bottom: 10px">
+                                <img class="img-responsive img-rounded" src="{{asset('/images/services/treatment-hand.jpg')}}">
+                            </div>
+                            <div class="col-sm-6" style="margin-bottom: 10px">
+                                <h3>ការព្យាបាលដោយដៃរបស់គ្រូពេទ្យ</h3>
+                                <div>
+                                    <p>កំលុងពេលលោកអ្នកជួបគ្រូពេទ្យលើកដំបូង គាត់នឹងសួរសំនួរពិសេសខ្លះ ដើម្បីឲ្យបានយល់ច្បាស់អំពីប្រវត្តិសុខភាពរបស់លោកអ្នក។ បន្ទាប់ពីនោះ គាត់នឹងពិនិត្យមើលសុខភាពរាងកាយ រួមមានការពិនិត្យមើលឥរិយាបថ និងការធ្វើចលនារបស់អវយវៈ ហើយការពិនិត្យមើលសន្លាក់ ឲ្យរកឃើញប្រភពបញ្ហារបស់លោកអ្នក។ គាត់នឹងពិគ្រោះជាមួយនឹងអ្នកជំងឺអំពីលទ្ធផល ហើយអ្នកទាំងពីរនឹងរួមគ្នាធ្វើការសម្រេចចិត្តចំពោះវិធីសាស្ត្ររបៀបណា ដែលសមស្របទៅនឹងតម្រូវការរបស់អ្នកជំងឺ។</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6" style="margin-bottom: 10px">
+                                <h3>ការព្យាបាលដោយប្រើម៉ាស៊ីនរលកកាំរស្មី (Shockwave)</h3>
+                                <div>
+                                    <p> ម៉ាស៊ីនរលកកាំរស្មី (Shockwave) គឺជាឩបករណ៏ដែលមានមុខងារជាច្រើន ហើយវាត្រូវបានគេប្រើប្រាស់សំរាប់ព្យាបាលបញ្ហាឆ្អឹងឬសាច់ដុំ,ការព្យាបាលដោយចលនានិង ជាថ្នាំកីឡា និងវាអាចបាញ់បំបែកគ្រួសក្នុងដំរងនោមផងដែរ ។ គុណសម្បត្តិដ៍ធំបំផុតរបស់ម៉ាស៊ីននេះ គឺវាជួយបំបាត់ការឈឺចាប់បានយ៉ាងឆាប់រហ័ស និងជួយស្តាឡើងវិញនូវមុខងាចលនា។ ការព្យាបាលដោយពុំមានការវះកាត់បូករួមជាមួយ នឹងការមិនប្រើថ្នាំបំបាត់ការឈឺចាប់ គឺជាវិធីដ៏ល្អបំផុតដើម្បីជំរុញការជាសះស្បើយឱ្យកាន់តែលឿន និងបំបាត់ រោគសញ្ញាដែលអាចបង្ករការឈឺចាប់ថ្មីៗ និងរ៉ាំរ៉ៃ។</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" style="margin-bottom: 10px">
+                                <img class="img-responsive img-rounded" src="{{asset('/images/services/shockwave.jpg')}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</div>
 </div><!--/#contact-page-->

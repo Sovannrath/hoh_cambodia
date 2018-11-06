@@ -11,7 +11,7 @@
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">លក្ខណៈពិសេស</h2>
-						@foreach(App\Product::all()->take(9) as $product)
+						@foreach(App\Product::where('recommend','=',0)->get() as $product)
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 							
@@ -33,8 +33,8 @@
 					<div class=""><!--recommended_items-->
 						<h2 class="title text-center">ទំនិញដែលយើងណែនាំ</h2>
                             <div class="recommended-item">
-								@foreach(App\Product::all()->take(9) as $product)
-									<div class="col-sm-4">
+								@foreach(App\Product::where('recommend','=',1)->get() as $product)
+									<div class="col-sm-4 col-xs-12">
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
