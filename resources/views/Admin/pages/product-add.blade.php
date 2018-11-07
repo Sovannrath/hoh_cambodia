@@ -53,36 +53,7 @@
 												<input type="text" name="brand_name" placeholder="ម៉ាកសញ្ញា ឬក្រុមហ៊ុន">
 											</label>
 										</section>
-										<section class="col col-6">
-											<label class="select">
-												<select name="pro_condition">
-													<option value="0" selected="" disabled="">លក្ខណៈទំនិញ</option>
-													<option value="1">ថ្មី</option>
-													<option value="2">មួយតឹក</option>
-												</select> <i></i> </label>
-										</section>
-									</div>
-								</fieldset>
-
-								<fieldset>
-									<div class="row">
-										<section class="col col-6">
-											<label class="select">
-												<select name="availability">
-													<option value="0" selected="" disabled="">ស្ថានភាព</option>
-													<option value="1">មាននៅក្នុងស្ដុក</option>
-													<option value="2">អស់ពីស្ដុក</option>
-												</select> <i></i> </label>
-										</section>
-										<section class="col col-6">
-											<label class="input"> <i class="icon-append fa fa-dollar"></i>
-												<input type="text" name="pro_price" placeholder="តម្លៃទំនិញ">
-											</label>
-										</section>
-									</div>
-
-									<div class="row">
-										<section class="col col-6">
+                                        <section class="col col-6">
                                             <label class="select">
                                                 <select name="cate_name">
                                                     <option value="0" selected="" disabled="">ប្រភេទទំនិញ</option>
@@ -90,31 +61,82 @@
                                                     <option value="{{ $category->cate_id}}">{{ $category->cate_name}}</option>
                                                     @endforeach
                                                 </select> <i></i> </label>
+                                        </section>
+									</div>
+								</fieldset>
+
+								<fieldset>
+									<div class="row">
+                                        <section class="col col-4">
+                                            <label class="select">
+                                                <select name="pro_condition">
+                                                    <option value="0" selected="" disabled="">លក្ខណៈទំនិញ</option>
+                                                    <option value="1">ថ្មី</option>
+                                                    <option value="2">មួយតឹក</option>
+                                                </select> <i></i> </label>
+                                        </section>
+										<section class="col col-4">
+											<label class="select">
+												<select name="availability">
+													<option value="0" selected="" disabled="">ស្ថានភាព</option>
+													<option value="1">មាននៅក្នុងស្ដុក</option>
+													<option value="2">អស់ពីស្ដុក</option>
+												</select> <i></i> </label>
+										</section>
+										<section class="col col-4">
+											<label class="input"> <i class="icon-append fa fa-dollar"></i>
+												<input type="number" name="pro_price" placeholder="តម្លៃទំនិញ">
+											</label>
 										</section>
 									</div>
+                                </fieldset>
 
-									<section>
-                                        <label class="input"> <i class="icon-append fa fa-calendar"></i>បញ្ចូលរូបភាពទំនិញ
-                                        </label>
-                                        <div style="margin-top: 10px; margin-bottom: 10px">
-                                            <img style="max-height: 150px; padding-bottom: 10px; float:left" class="img-responsive" id="preview" src="" alt="" />
-                                            <input type="file" name="pro_image" id="image" style="display:none"class="form-control"/>
-                                            <a href="javascript:changeProfile();" class="btn btn-primary btn-sm">រូបភាព 1</a> |
-                                            <a style="color: red" href="javascript:removeImage()">លុបចេញ</a>
-                                            <input type="hidden" style="display: none" value="0" name="remove" id="remove">
+                                <fieldset>
+                                    <div class="row">
+                                        <div class="col col-sm-6">
+                                            <section>
+                                                <label class="textarea"> <i class="icon-append fa fa-comment"></i>
+                                                    <textarea rows="5" name="pro_detail" placeholder="ពត៌មានលម្អិត"></textarea>
+                                                </label>
+                                            </section>
                                         </div>
+                                        <div class="col col-sm-6">
+                                            <section>
+                                                <label class="textarea"> <i class="icon-append fa fa-comment"></i>
+                                                    <textarea rows="5" name="pro_feature" placeholder="លក្ខណៈពិសេស"></textarea>
+                                                </label>
+                                            </section>
+                                        </div>
+                                    </div>
 
-									</section>
-
-									<section>
-										<label class="textarea"> <i class="icon-append fa fa-comment"></i>
-											<textarea rows="5" name="pro_detail" placeholder="ពត៌មានលម្អិត"></textarea>
-										</label>
-									</section>
 								</fieldset>
+                                <fieldset>
+                                    <div class="row">
+                                        <div class="col col-sm-12">
+                                            <section>
+                                                <div class="">
+                                                    <label>
+                                                        <input type="checkbox" value="1" name="recommend"> ផលិតផលដែលណែនាំ
+                                                    </label>
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <label class="input">បញ្ចូលរូបភាពទំនិញ</label>
+                                                <div style="margin-top: 10px; margin-bottom: 10px;">
+                                                    <img style="max-height: 150px; padding-bottom: 10px; margin-right:10px; float:left" class="img-responsive" id="preview" src="" alt="" />
+                                                    <input type="file" name="pro_image" id="image" style="display:none"class="form-control"/>
+                                                    <a href="javascript:changeProfile();" class="btn btn-primary btn-sm">រូបភាព 1</a> |
+                                                    <a style="color: red" href="javascript:removeImage()">លុបចេញ</a>
+                                                    <input type="hidden" style="display: none" value="0" name="remove" id="remove">
+                                                </div>
+
+                                            </section>
+                                        </div>
+                                    </div>
+                                </fieldset>
 								<footer>
-									<button type="submit" class="btn btn-primary">
-										បន្ថែមទំនិញថ្មី
+									<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>
+										រក្សាទុក
 									</button>
 								</footer>
 							</form>
@@ -138,7 +160,7 @@
         if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
             readURL(this);
         else
-            alert("Please select image file (jpg, jpeg, png).")
+            alert("Please select image file (jpg, jpeg, png).");
     });
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -178,9 +200,6 @@
                 cate_name : {
                     required : true,
                 },
-                pro_detail : {
-                    required : true,
-                }
 
             },
 
@@ -201,9 +220,6 @@
                 cate_name:{
                     required : 'ជ្រើសរើសប្រភេទទំនិញ',
                 },
-                pro_detail:{
-                    required : 'បញ្ចូលពត៌មានលម្អិត',
-                }
             },
 
             // Do not change code below

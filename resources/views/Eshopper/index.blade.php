@@ -11,7 +11,7 @@
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">លក្ខណៈពិសេស</h2>
-						@foreach(App\Product::where('recommend','=',0)->get() as $product)
+						@foreach(App\Product::all()->take(9) as $product)
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 							

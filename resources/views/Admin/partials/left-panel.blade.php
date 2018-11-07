@@ -45,6 +45,9 @@
               <li class="{{ (\Request::route()->getName() == 'category') ? 'active' : '' }}">
                   <a href="{{ route('category') }}" title="ការកំណត់"><i class="fa fa-lg fa-fw fa-cog"></i> <span class="menu-item-parent">ប្រភេទទំនិញ</span></a>
               </li>
+              <li class="{{ (\Request::route()->getName() == 'category') ? 'active' : '' }}">
+                  <a href="{{ route('category') }}" title="ការកំណត់"><i class="fa fa-lg fa-fw fa-cog"></i> <span class="menu-item-parent">ម៉ាកសញ្ញា / ក្រុមហ៊ុន</span></a>
+              </li>
           </ul>
       </li>
     </ul>

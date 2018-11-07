@@ -69,8 +69,10 @@ class ProductController extends Controller
 	    $product->status = $request->input('availability');
 	    $product->pro_price = $request->input('pro_price');
 	    $product->cate_id = $request->input('cate_name');
+	    $product->recommend = $request->input('recommend');
 	    $product->product_image = $pro_img;
 	    $product->product_detail = $request->input('pro_detail');
+	    $product->product_feature = $request->input('pro_feature');
 
 //	    dd($product);
 	    $product->Save();
