@@ -41,6 +41,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach(App\Product::where('recommend','=', 1)->get() as $recommend)
+                                    <tr>
+                                        <td>{{$recommend->id}}</td>
+                                        <td>{{$recommend->product_name}}</td>
+                                        <td>{{$recommend->created_at}}</td>
+                                        <td><button type="button" title="លុបចេញពីផលិតផលណែនាំ" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>{{-- end widget body --}}
@@ -79,65 +87,6 @@
         $('#preview').attr('src', '{{url('')}}');
         $('#remove').val(1);
     }
-</script>
-<script type="text/javascript">
-    runAllForms();
-
-    $(function() {
-        // Validation
-        $("#product-form").validate({
-            // Rules for form validation
-            rules : {
-                pro_name: {
-                    required : true,
-                },
-                pro_condition: {
-                    required : true,
-                },
-                availability : {
-                    required : true,
-                },
-                pro_price : {
-                    required : true,
-                },
-                cate_name : {
-                    required : true,
-                },
-                pro_detail : {
-                    required : true,
-                }
-
-            },
-
-            // Messages for form validation
-            messages : {
-                pro_name:{
-                    required : 'បញ្ចូលឈ្មោះទំនិញ',
-                },
-                pro_condition:{
-                    required : 'ជ្រើសរើសលក្ខណៈតំនិញ',
-                },
-                availability:{
-                    required : 'ជ្រើសរើសស្ថានភាព',
-                },
-                pro_price:{
-                    required : 'បញ្ចូលតម្លតម្លៃ',
-                },
-                cate_name:{
-                    required : 'ជ្រើសរើសប្រភេទទំនិញ',
-                },
-                pro_detail:{
-                    required : 'បញ្ចូលពត៌មានលម្អិត',
-                }
-            },
-
-            // Do not change code below
-            errorPlacement : function(error, element) {
-                error.css({'color':'red', 'font-size':'10px', 'padding-top':'5px'});
-                error.insertAfter(element.parent()ខ);
-            }
-        });
-    });
 </script>
 
 @endsection

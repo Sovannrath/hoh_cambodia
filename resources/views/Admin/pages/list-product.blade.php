@@ -1,3 +1,6 @@
+@php
+use Carbon\Carbon;
+@endphp
 @extends('/Admin.layouts.master')
 @section('template_title')
 ទំនិញទាំងអស
@@ -45,18 +48,17 @@
 								</thead>
 								<tbody>
 								@foreach($products as $product)
-								<tr>
+								<tr id="product">
 									<td>{{ $product->id }}</td>
 									<td>{{ $product->product_name }}</td>
 									<td><label>{{ $product->product_code }}</label></td>
 									<td>{{ $product->brand_name }}</td>
 									<td>{{ $product->condition }}</td>
 									<td>{{ $product->status }}</td>
-                                    <td><a href="#" id="img-preview-{{$product->id}}"><img class="img img-rounded img-preview" src="/images/shop/product-images/{{ $product->product_image }}" style="height: 40px; width: 40px;"></a> <span><button class="btn btn-sm btn-primary pull-right"><i class="fa fa-plus"></i></button></span></td>
+                                    <td><a href="#" id="img-preview" data-id="{{$product->id}}"><img class="img img-rounded img-preview" src="/images/shop/product-images/{{ $product->product_image }}" style="height: 40px; width: 40px;"></a> <span><button class="btn btn-sm btn-primary pull-right"><i class="fa fa-plus"></i></button></span></td>
                                     <td>
                                         <a href="/{{$product->id}}/product-edit" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-pencil"></i></a>
-                                        <a id="favorite" href="#" class="btn btn-sm btn-warning favorite"><i class="glyphicon glyphicon-star"></i></a>
-                                        <a id="delete{{$product->id}}" href="/{{ $product->id}}/product-delete" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                                        <a id="delete" data-id="{{$product->id}}" href="#" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
 								</tr>
 								@endforeach
@@ -113,18 +115,16 @@
             }
         });
         /* END BASIC */
-        $('#product_list tbody').on('click', 'tr', function () {
-            var data = table.row( this ).data();
-            var id = data[0];
-            console.log(id);
+        $('#product_list tbody').on('click', '#product #img-preview', function () {
+            // var data = table.row( this ).data();
+            var id = $(this).attr("data-id");
             $.ajax({
-                url: id+'/img-preview',
+                url: '/'+id+'/img-preview',
                 type: 'GET',
-                // data: 'id'+id,
+                data: 'id='+id,
                 success: function(data){
                     var get_data = JSON.parse(data);
-                    var image_url = get_data[0].product_image;
-                    console.log(get_data[0].product_image);
+                    var image_url = get_data[0].product_image;;
                     $.dialog({
                         title: 'Image Preview',
                         content: '<img src="/images/shop/product-images/'+ image_url+'">',
@@ -133,6 +133,57 @@
             });
 
         });
+        $('#product_list tbody').on('click', '#product #delete', function () {
+            // var data = table.row( this ).data();
+            var id = $(this).attr("data-id");
+            $.confirm({
+                title: 'លុប',
+                icon: 'fa fa-trash-o',
+                content: 'តើអ្នកចង់លុបមែនទេ?',
+                type: 'red',
+                buttons: {
+                    Delete: {
+                        text: 'លុប',
+                        btnClass: 'btn-red',
+                        action: function () {
+                            $.ajax({
+                                url:'/'+id+'/product-delete',
+                                type:'get',
+                                data: 'id='+id,
+                                success: function () {
+                                    $.smallBox({
+                                        title: 'ការលុបបានជោគជ័យ!',
+                                        content : "<i class='fa fa-clock-o'></i> <i>{{Carbon::now()->format('d / m / Y h:s A')}}</i>",
+                                        iconSmall : "fa fa-bell bounce animated",
+                                        color : "#32c508",
+                                        timeout: 2800,
+                                    });
+                                    window.setTimeout(function(){window.location.reload()}, 3000);
+                                }
+                            })
+                        }
+                    },
+                    បោះបង់: function () {
+
+                    }
+                }
+            });
+        });
+            // $.ajax({
+            //{{ $product->id}}/product-delete
+            //     url: '/'+id+'/img-preview',
+            //     type: 'GET',
+            //     data: 'id='+id,
+            //     success: function(data){
+            //         var get_data = JSON.parse(data);
+            //         var image_url = get_data[0].product_image;;
+            //         $.dialog({
+            //             title: 'Image Preview',
+            //             content: '<img src="/images/shop/product-images/'+ image_url+'">',
+            //         });
+            //     }
+            // });
+
 
         $('.favorite').click(function () {
             // $.alert(data);

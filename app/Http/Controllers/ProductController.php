@@ -76,7 +76,7 @@ class ProductController extends Controller
 
 //	    dd($product);
 	    $product->Save();
-	    return redirect()->back()->with('alert-success', 'You added the product successfully!');
+//	    return redirect()->back()->with('alert-success', 'You added the product successfully!');
     }
 
     /**

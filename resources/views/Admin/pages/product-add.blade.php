@@ -31,18 +31,18 @@
 						<div class="jarviswidget-editbox">
 						</div>
 						<div class="widget-body no-padding"​>
-							<form action="{{url('/add-product')}}" id="product-form" class="smart-form" method="POST" enctype="multipart/form-data">
+							<form id="product-form" class="smart-form">
 								{{ csrf_field() }}
 								<fieldset>
 									<div class="row">
 										<section class="col col-6">
 											<label class="input"> <i class="icon-append fa fa-tag"></i>
-												<input type="text" name="pro_name" placeholder="ឈ្មោះទំនិញ">
+												<input type="text" name="pro_name" placeholder="ឈ្មោះទំនិញ" id="pro_name">
 											</label>
 										</section>
 										<section class="col col-6">
 											<label class="input"> <i class="icon-append fa fa-qrcode"></i>
-												<input type="text" name="pro_code" placeholder="លេខកូដទំនិញ">
+												<input type="text" name="pro_code" placeholder="លេខកូដទំនិញ" id="pro_code">
 											</label>
 										</section>
 									</div>
@@ -50,12 +50,12 @@
 									<div class="row">
 										<section class="col col-6">
 											<label class="input"> <i class="icon-append fa fa-envelope-o"></i>
-												<input type="text" name="brand_name" placeholder="ម៉ាកសញ្ញា ឬក្រុមហ៊ុន">
+												<input type="text" name="brand_name" placeholder="ម៉ាកសញ្ញា ឬក្រុមហ៊ុន" id="brand_name">
 											</label>
 										</section>
                                         <section class="col col-6">
                                             <label class="select">
-                                                <select name="cate_name">
+                                                <select name="cate_name" id="cate_name">
                                                     <option value="0" selected="" disabled="">ប្រភេទទំនិញ</option>
                                                     @foreach( App\Category::all() as $category)
                                                     <option value="{{ $category->cate_id}}">{{ $category->cate_name}}</option>
@@ -69,7 +69,7 @@
 									<div class="row">
                                         <section class="col col-4">
                                             <label class="select">
-                                                <select name="pro_condition">
+                                                <select name="pro_condition" id="pro_condition">
                                                     <option value="0" selected="" disabled="">លក្ខណៈទំនិញ</option>
                                                     <option value="1">ថ្មី</option>
                                                     <option value="2">មួយតឹក</option>
@@ -77,7 +77,7 @@
                                         </section>
 										<section class="col col-4">
 											<label class="select">
-												<select name="availability">
+												<select name="availability" id="availability">
 													<option value="0" selected="" disabled="">ស្ថានភាព</option>
 													<option value="1">មាននៅក្នុងស្ដុក</option>
 													<option value="2">អស់ពីស្ដុក</option>
@@ -85,7 +85,7 @@
 										</section>
 										<section class="col col-4">
 											<label class="input"> <i class="icon-append fa fa-dollar"></i>
-												<input type="number" name="pro_price" placeholder="តម្លៃទំនិញ">
+												<input type="number" name="pro_price" placeholder="តម្លៃទំនិញ" id="pro_price">
 											</label>
 										</section>
 									</div>
@@ -96,14 +96,14 @@
                                         <div class="col col-sm-6">
                                             <section>
                                                 <label class="textarea"> <i class="icon-append fa fa-comment"></i>
-                                                    <textarea rows="5" name="pro_detail" placeholder="ពត៌មានលម្អិត"></textarea>
+                                                    <textarea rows="5" name="pro_detail" placeholder="ពត៌មានលម្អិត" id="pro_detail"></textarea>
                                                 </label>
                                             </section>
                                         </div>
                                         <div class="col col-sm-6">
                                             <section>
                                                 <label class="textarea"> <i class="icon-append fa fa-comment"></i>
-                                                    <textarea rows="5" name="pro_feature" placeholder="លក្ខណៈពិសេស"></textarea>
+                                                    <textarea rows="5" name="pro_feature" placeholder="លក្ខណៈពិសេស" id="pro_feature"></textarea>
                                                 </label>
                                             </section>
                                         </div>
@@ -116,7 +116,7 @@
                                             <section>
                                                 <div class="">
                                                     <label>
-                                                        <input type="checkbox" value="1" name="recommend"> ផលិតផលដែលណែនាំ
+                                                        <input type="checkbox" name="recommend" id="recommend"> ផលិតផលដែលណែនាំ
                                                     </label>
                                                 </div>
                                             </section>
@@ -125,7 +125,7 @@
                                                 <div style="margin-top: 10px; margin-bottom: 10px;">
                                                     <img style="max-height: 150px; padding-bottom: 10px; margin-right:10px; float:left" class="img-responsive" id="preview" src="" alt="" />
                                                     <input type="file" name="pro_image" id="image" style="display:none"class="form-control"/>
-                                                    <a href="javascript:changeProfile();" class="btn btn-primary btn-sm">រូបភាព 1</a> |
+                                                    <a href="javascript:uploadImage();" class="btn btn-primary btn-sm">រូបភាព 1</a> |
                                                     <a style="color: red" href="javascript:removeImage()">លុបចេញ</a>
                                                     <input type="hidden" style="display: none" value="0" name="remove" id="remove">
                                                 </div>
@@ -135,9 +135,7 @@
                                     </div>
                                 </fieldset>
 								<footer>
-									<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>
-										រក្សាទុក
-									</button>
+									<button id="save" class="btn btn-primary"><i class="fa fa-save"></i> រក្សាទុក</button>
 								</footer>
 							</form>
 						</div>{{-- end widget body --}}
@@ -151,33 +149,71 @@
 @endsection
 @section('script')
 <script>
-    function changeProfile() {
-        $('#image').click();
-    }
-    $('#image').change(function () {
-        var imgPath = $(this)[0].value;
-        var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-        if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
-            readURL(this);
-        else
-            alert("Please select image file (jpg, jpeg, png).");
-    });
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.readAsDataURL(input.files[0]);
-            reader.onload = function (e) {
-                $('#preview').attr('src', e.target.result);
-                $('#remove').val(0);
+        $('#save').click(function () {
+            var proName = $('#pro_name').val();
+            var proCode = $('#pro_code').val();
+            var proBrand = $('#brand_name').val();
+            var cateName = $('#cate_name').val();
+            var proCondition = $('#pro_condition').val();
+            var proStatus = $('#availability').val();
+            var proPrice = $('#pro_price').val();
+            var proDetail = $('#pro_detail').val();
+            var proFeature = $('#pro_feature').val();
+            var proRecommend =$('#recommend').val();
+            var proImage = $('#image').val();
+            $.ajax({
+                type: 'post',
+                url: '/add-product',
+                data: 'pro_name='+proName+'&pro_code='+proCode+'&brand_name='+ proBrand+'&cate_name='+cateName+'&pro_condition='+proCondition
+                    +'&availability='+proStatus+'&pro_price='+proPrice,
+                success: function (response) {
+                    $.alert('Successful!');
+                },
+                error: function () {
+                    $.alert('Something wrong!');
+                }
+            })
+        });
+</script>
+<script>
+        function uploadImage() {
+            $('#image').click();
+        }
+
+        $('#image').change(function () {
+            var imgPath = $(this)[0].value;
+            var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+            if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
+                readURL(this);
+            else
+                alert("Please select image file (jpg, jpeg, png).");
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.readAsDataURL(input.files[0]);
+                reader.onload = function (e) {
+                    $('#preview').attr('src', e.target.result);
+                    $('#remove').val(0);
+                }
             }
         }
-    }
-    function removeImage() {
-        $('#preview').attr('src', '{{url('')}}');
-        $('#remove').val(1);
-    }
+
+        function removeImage() {
+            $('#preview').attr('src', '{{url("")}}');
+            $('#remove').val(1);
+        }
+
+        $('#recommend').change(function () {
+            if ($(this).attr('checked')) {
+                $(this).val('TRUE');
+            } else {
+                $(this).val('FALSE');
+            }
+        });
 </script>
-<script type="text/javascript">
+<script>
     runAllForms();
 
     $(function() {
