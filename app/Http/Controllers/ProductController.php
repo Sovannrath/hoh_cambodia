@@ -74,6 +74,7 @@ class ProductController extends Controller
 	    $product->product_detail = $request->input('pro_detail');
 	    $product->product_feature = $request->input('pro_feature');
 
+//	    return response()->json($product);
 //	    dd($product);
 	    $product->Save();
 //	    return redirect()->back()->with('alert-success', 'You added the product successfully!');

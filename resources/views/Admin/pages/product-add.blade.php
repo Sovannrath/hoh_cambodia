@@ -32,7 +32,7 @@
 						</div>
 						<div class="widget-body no-padding"​>
 							<form id="product-form" class="smart-form">
-								{{ csrf_field() }}
+                                {{ csrf_field() }}
 								<fieldset>
 									<div class="row">
 										<section class="col col-6">
@@ -56,7 +56,7 @@
                                         <section class="col col-6">
                                             <label class="select">
                                                 <select name="cate_name" id="cate_name">
-                                                    <option value="0" selected="" disabled="">ប្រភេទទំនិញ</option>
+                                                    <option value="" selected="" disabled="">ប្រភេទទំនិញ</option>
                                                     @foreach( App\Category::all() as $category)
                                                     <option value="{{ $category->cate_id}}">{{ $category->cate_name}}</option>
                                                     @endforeach
@@ -70,7 +70,7 @@
                                         <section class="col col-4">
                                             <label class="select">
                                                 <select name="pro_condition" id="pro_condition">
-                                                    <option value="0" selected="" disabled="">លក្ខណៈទំនិញ</option>
+                                                    <option value="" selected="" disabled="">លក្ខណៈទំនិញ</option>
                                                     <option value="1">ថ្មី</option>
                                                     <option value="2">មួយតឹក</option>
                                                 </select> <i></i> </label>
@@ -78,7 +78,7 @@
 										<section class="col col-4">
 											<label class="select">
 												<select name="availability" id="availability">
-													<option value="0" selected="" disabled="">ស្ថានភាព</option>
+													<option value="" selected="" disabled="">ស្ថានភាព</option>
 													<option value="1">មាននៅក្នុងស្ដុក</option>
 													<option value="2">អស់ពីស្ដុក</option>
 												</select> <i></i> </label>
@@ -135,7 +135,7 @@
                                     </div>
                                 </fieldset>
 								<footer>
-									<button id="save" class="btn btn-primary"><i class="fa fa-save"></i> រក្សាទុក</button>
+									<button type="button" id="save" class="btn btn-primary"><i class="fa fa-save"></i> រក្សាទុក</button>
 								</footer>
 							</form>
 						</div>{{-- end widget body --}}
@@ -149,6 +149,8 @@
 @endsection
 @section('script')
 <script>
+    $(document).ready(function () {
+
         $('#save').click(function () {
             var proName = $('#pro_name').val();
             var proCode = $('#pro_code').val();
@@ -159,21 +161,75 @@
             var proPrice = $('#pro_price').val();
             var proDetail = $('#pro_detail').val();
             var proFeature = $('#pro_feature').val();
-            var proRecommend =$('#recommend').val();
-            var proImage = $('#image').val();
-            $.ajax({
-                type: 'post',
-                url: '/add-product',
-                data: 'pro_name='+proName+'&pro_code='+proCode+'&brand_name='+ proBrand+'&cate_name='+cateName+'&pro_condition='+proCondition
-                    +'&availability='+proStatus+'&pro_price='+proPrice,
-                success: function (response) {
-                    $.alert('Successful!');
-                },
-                error: function () {
-                    $.alert('Something wrong!');
-                }
-            })
+            var proImage = $('input[name="pro_image"]').val();
+
+            $('#recommend').on('change', function(){
+                this.value = this.checked ? 1 : 0;
+            }).change();
+            var proRecommend = $('#recommend').val();
+            console.log(proRecommend);
+            console.log(proImage);
+            if(!proName){
+                $.dialog({
+                    title:false,
+                    type: 'red',
+                    content: 'សូមបញ្ចូល <strong>ឈ្មោះទំនិញ !</strong>',
+                    backgroundDismiss:true,
+                });
+            }else if(!proBrand){
+                $.dialog({
+                    title:false,
+                    type: 'red',
+                    content: 'សូមបញ្ចូល <strong>ម៉ាកសញ្ញា ឬក្រុមហ៊ុន!</strong>',
+                    backgroundDismiss:true,
+                });
+            }else if(!cateName){
+                $.dialog({
+                    title:false,
+                    type: 'red',
+                    content: 'សូមជ្រើសរើស <strong>ប្រភេទទំនិញ!</strong>',
+                    backgroundDismiss:true,
+                });
+            }else if(!proCondition){
+                $.dialog({
+                    title:false,
+                    type: 'red',
+                    content: 'សូមជ្រើសរើស <strong>លក្ខណៈទំនិញ!</strong>',
+                    backgroundDismiss:true,
+                });
+            }else if(!proStatus){
+                $.dialog({
+                    title:false,
+                    type: 'red',
+                    content: 'សូមជ្រើសរើស <strong>ស្ថានភាព!</strong>',
+                    backgroundDismiss:true,
+                });
+            }else if(!proPrice){
+                $.dialog({
+                    title:false,
+                    type: 'red',
+                    content: 'សូមបញ្ចូល <strong>តម្លៃ!</strong>',
+                    backgroundDismiss:true,
+                });
+            }else{
+                saveProduct(proName, proCode, proBrand, cateName, proCondition, proStatus, proPrice, proDetail, proFeature, proRecommend, proImage);
+            }
         });
+    });
+    function saveProduct(proName, proCode, proBrand, cateName, proCondition, proStatus, proPrice, proDetail, proFeature, proRecommend, proImage) {
+        $.ajax({
+            method: 'post',
+            url: '/add-product',
+            data: 'pro_name='+proName+'&pro_code='+proCode+'&brand_name='+ proBrand+'&cate_name='+cateName+'&pro_condition='+proCondition
+            +'&availability='+proStatus+'&pro_price='+proPrice+'&pro_detail='+proDetail+'&pro_feature='+proFeature+'&recommend='+proRecommend+'&pro_image='+proImage,
+            success: function (response) {
+                $.alert('Successful!');
+            },
+            error: function (response) {
+                return response;
+            }
+        });
+    }
 </script>
 <script>
         function uploadImage() {
@@ -212,59 +268,6 @@
                 $(this).val('FALSE');
             }
         });
-</script>
-<script>
-    runAllForms();
-
-    $(function() {
-        // Validation
-        $("#product-form").validate({
-            // Rules for form validation
-            rules : {
-                pro_name: {
-                    required : true,
-                },
-                pro_condition: {
-                    required : true,
-                },
-                availability : {
-                    required : true,
-                },
-                pro_price : {
-                    required : true,
-                },
-                cate_name : {
-                    required : true,
-                },
-
-            },
-
-            // Messages for form validation
-            messages : {
-                pro_name:{
-                    required : 'បញ្ចូលឈ្មោះទំនិញ',
-                },
-                pro_condition:{
-                    required : 'ជ្រើសរើសលក្ខណៈតំនិញ',
-                },
-                availability:{
-                    required : 'ជ្រើសរើសស្ថានភាព',
-                },
-                pro_price:{
-                    required : 'បញ្ចូលតម្លតម្លៃ',
-                },
-                cate_name:{
-                    required : 'ជ្រើសរើសប្រភេទទំនិញ',
-                },
-            },
-
-            // Do not change code below
-            errorPlacement : function(error, element) {
-                error.css({'color':'red', 'font-size':'11px', 'padding-top':'5px'});
-                error.insertAfter(element.parent());
-            }
-        });
-    });
 </script>
 
 @endsection
